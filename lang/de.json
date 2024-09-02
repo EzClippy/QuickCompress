@@ -1,0 +1,20 @@
+{
+  "app_title": "QuickCompressor",
+  "input_directory": "Eingabeverzeichnis",
+  "input_file": "Eingabedatei",
+  "browse_button": "Durchsuchen",
+  "output_directory_label": "Ausgabeverzeichnis",
+  "select_size": "Maximale Grösse (Pixel):",
+  "select_format": "Ausgabeformat:",
+  "compress_button": "Komprimieren",
+  "processing_title": "Verarbeitung...",
+  "processing_message": "Die Bilder werden komprimiert und konvertiert. Bitte warten...",
+  "error_title": "Fehler",
+  "error_invalid_input": "Bitte wählen Sie ein gültiges Verzeichnis oder eine Datei aus.",
+  "error_invalid_output": "Bitte wählen Sie ein gültiges Ausgabeverzeichnis aus.",
+  "error_compression": "Ein Fehler ist aufgetreten. Bitte überprüfen Sie die Eingabe und versuchen Sie es erneut.",
+  "success_title": "Erfolg",
+  "success_compression": "Die Bilder wurden erfolgreich komprimiert und konvertiert.",
+  "cancel_title": "Abbruch",
+  "cancel_message": "Der Vorgang wurde abgebrochen."
+}
