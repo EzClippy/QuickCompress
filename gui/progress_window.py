@@ -1,6 +1,7 @@
 import json
 from tkinter import Label, ttk, Toplevel
 from config.config import LANGUAGE_FILE
+from config.config import ICON_PATH
 
 def load_texts(language_file):
     with open(language_file, 'r', encoding='utf-8') as file:
@@ -11,6 +12,7 @@ texts = load_texts(LANGUAGE_FILE)
 class ProgressWindow(Toplevel):
     def __init__(self, master=None, on_cancel=None, **kwargs):
         super().__init__(master, **kwargs)
+        self.iconbitmap(ICON_PATH)
         self.label = Label(self, text=texts["processing_message"])
         self.label.pack(pady=10)
 
