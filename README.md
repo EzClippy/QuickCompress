@@ -1,5 +1,9 @@
 # QuickCompress
 
+[![GitHub release](https://img.shields.io/badge/release-latest-brightgreen)](https://github.com/EzClippy/QuickCompress/releases/latest) &nbsp; [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
+![banner](./assets/banner.png)
+
 QuickCompress ist eine benutzerfreundliche GUI-Anwendung zum Komprimieren und Ändern der Grösse von Bildern. Sie unterstützt verschiedene Bildformate und ermöglicht es den Benutzern, die gewünschte Ausgabengrösse und das gewünschte Format auszuwählen. Die Anwendung ist plattformübergreifend und intuitiv gestaltet, sodass sie für Benutzer aller Erfahrungsstufen zugänglich ist.
 
 ## Funktionen
@@ -19,38 +23,41 @@ QuickCompress ist eine benutzerfreundliche GUI-Anwendung zum Komprimieren und Ä
 ### Einrichtung
 
 1. **Repository klonen:**
-    ```sh
-    git clone https://github.com/EzClippy/QuickCompress.git
-    cd QuickCompress
-    ```
+
+   ```sh
+   git clone https://github.com/EzClippy/QuickCompress.git
+   cd QuickCompress
+   ```
 
 2. **Erstellen und Aktivieren einer virtuellen Umgebung:**
 
-    - **Windows:**
-    ```cmd
-    .\activate-venv.bat
-    ```
+   - **Windows:**
 
-    - **Linux:**
-    ```sh
-    ./activate-venv.sh
-    ```
+   ```cmd
+   .\activate-venv.bat
+   ```
+
+   - **Linux:**
+
+   ```sh
+   ./activate-venv.sh
+   ```
 
 3. **Abhängigkeiten installieren:**
-    ```sh
-    pip install -r requirements.txt
-    ```
+   ```sh
+   pip install -r requirements.txt
+   ```
 
 ## Verwendung
 
 1. **Die Anwendung starten:**
-    ```sh
-    python app.py
-    ```
+   ```sh
+   python app.py
+   ```
 2. **Folgen Sie den Anweisungen in der GUI:**
-    - Wählen Sie Eingabedateien oder -verzeichnis aus.
-    - Wählen Sie Ausgabeformat und -grösse.
-    - Klicken Sie auf „Komprimieren“, um die Verarbeitung zu starten.
+   - Wählen Sie Eingabedateien oder -verzeichnis aus.
+   - Wählen Sie Ausgabeformat und -grösse.
+   - Klicken Sie auf „Komprimieren“, um die Verarbeitung zu starten.
 
 ## Lizenz
 
