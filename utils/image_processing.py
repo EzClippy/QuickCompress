@@ -1,10 +1,28 @@
 import os
-from PIL import Image
+from PIL import Image, ExifTags
 from constants.constants import SUPPORTED_IMAGE_FORMATS_IMPORT
 
 def resize_and_convert(image_path, output_path, max_pixels, compressed_format):
     try:
         with Image.open(image_path) as img:
+            # Correct orientation based on EXIF data
+            try:
+                for orientation in ExifTags.TAGS.keys():
+                    if ExifTags.TAGS[orientation] == 'Orientation':
+                        break
+                exif = img._getexif()
+                if exif is not None:
+                    orientation = exif.get(orientation)
+                    if orientation == 3:
+                        img = img.rotate(180, expand=True)
+                    elif orientation == 6:
+                        img = img.rotate(270, expand=True)
+                    elif orientation == 8:
+                        img = img.rotate(90, expand=True)
+            except (AttributeError, KeyError, IndexError):
+                # No EXIF data or orientation tag not found
+                pass
+
             original_width, original_height = img.size
             original_area = original_width * original_height
 
