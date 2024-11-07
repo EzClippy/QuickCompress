@@ -96,7 +96,7 @@ class ImageConverterGUI:
         else:
             filetypes = [("Image files", ";*".join(SUPPORTED_IMAGE_FORMATS_IMPORT))]
             path = filedialog.askopenfilename(filetypes=filetypes)
-        
+
         self.entry_input.delete(0, 'end')
         self.entry_input.insert(0, path)
 
