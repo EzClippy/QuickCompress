@@ -39,7 +39,7 @@ def resize_and_convert(image_path, output_path, max_pixels, compressed_format):
                 format_to_save = 'JPEG'
 
             # Convert to RGB if saving as JPEG
-            if format_to_save == 'JPEG' and resized_img.mode in ('RGBA', 'LA'):
+            if format_to_save == 'JPEG' and resized_img.mode in ('P', 'RGBA', 'LA'):
                 resized_img = resized_img.convert('RGB')
 
             output_path = os.path.splitext(output_path)[0] + compressed_format
