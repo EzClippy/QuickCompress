@@ -58,7 +58,7 @@ def process_images_in_directory(input_directory, output_directory, progress_wind
     file_list = []
     for root, _, files in os.walk(input_directory):
         for file in files:
-            if file.lower().endswith(SUPPORTED_IMAGE_FORMATS_IMPORT):
+            if any(file.lower().endswith(ext) for exts in SUPPORTED_IMAGE_FORMATS_IMPORT.values() for ext in exts):
                 file_list.append(os.path.join(root, file))
 
     total_files = len(file_list)

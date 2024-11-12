@@ -71,8 +71,8 @@ class ImageConverterGUI:
         self.label_format.grid(row=6, column=0, sticky="w", padx=5, pady=5)
 
         self.format_var = StringVar()
-        self.format_var.set(SUPPORTED_IMAGE_FORMATS_EXPORT[0])
-        self.dropdown_format = ttk.Combobox(self.frame, textvariable=self.format_var, values=SUPPORTED_IMAGE_FORMATS_EXPORT, font=labelFont, state='readonly')
+        self.format_var.set(list(SUPPORTED_IMAGE_FORMATS_EXPORT.keys())[0])
+        self.dropdown_format = ttk.Combobox(self.frame, textvariable=self.format_var, values=list(SUPPORTED_IMAGE_FORMATS_EXPORT.keys()), font=labelFont, state='readonly')
         self.dropdown_format.grid(row=6, column=1, padx=5, pady=5)
 
         self.button_compress = Button(self.frame, text=texts["compress_button"], command=self.convert, font=buttonFont)
@@ -94,7 +94,7 @@ class ImageConverterGUI:
         if self.input_type.get() == "directory":
             path = filedialog.askdirectory()
         else:
-            filetypes = [("Image files", ";*".join(SUPPORTED_IMAGE_FORMATS_IMPORT))]
+            filetypes = [("Image files", ";*".join(ext for exts in SUPPORTED_IMAGE_FORMATS_IMPORT.values() for ext in exts))]
             path = filedialog.askopenfilename(filetypes=filetypes)
 
         self.entry_input.delete(0, 'end')
