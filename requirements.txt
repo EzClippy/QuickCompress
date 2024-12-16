@@ -5,4 +5,4 @@ pillow==10.4.0
 pillow-avif-plugin==1.4.6
 pytest==8.3.3
 pytest-qt==4.4.0
-PyQt6==6.7.1
+PyQt6==6.8.0
