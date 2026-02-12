@@ -3,7 +3,6 @@ import sys
 import hashlib
 import pytest
 from PIL import Image, ImageDraw
-import pillow_avif  # Register AVIF plugin
 from tkinter import Tk
 
 # Adjust import path

@@ -2,6 +2,17 @@ import os
 from PIL import Image, ExifTags
 from constants.constants import SUPPORTED_IMAGE_FORMATS_IMPORT
 
+# Helper function to get the format key from the extension
+def get_format_key(ext):
+    for format, extensions in SUPPORTED_IMAGE_FORMATS_IMPORT.items():
+        if ext in extensions:
+            return format
+    return None
+
+# Helper function to get extensions by format
+def get_extensions_by_format(format_key):
+    return SUPPORTED_IMAGE_FORMATS_IMPORT.get(format_key, [])
+
 def resize_and_convert(image_path, output_path, max_pixels, compressed_format):
     try:
         with Image.open(image_path) as img:
@@ -34,9 +45,10 @@ def resize_and_convert(image_path, output_path, max_pixels, compressed_format):
             else:
                 resized_img = img
 
-            format_to_save = compressed_format.lstrip('.').upper()
-            if format_to_save == 'JPG':
-                format_to_save = 'JPEG'
+            format_to_save = get_format_key(compressed_format)
+            if not format_to_save:
+                print(f"Unsupported format: {compressed_format}")
+                return False
 
             # Convert to RGB if saving as JPEG
             if format_to_save == 'JPEG' and resized_img.mode in ('P', 'RGBA', 'LA'):
@@ -55,10 +67,21 @@ def process_images_in_directory(input_directory, output_directory, progress_wind
     if not os.path.exists(output_directory):
         os.makedirs(output_directory)
 
+    # Get the format key from the extension (e.g., '.webp' -> 'WEBP')
+    format_key = get_format_key(compressed_format)
+    if not format_key:
+        print(f"Unsupported format: {compressed_format}")
+        return False
+
+    # Get all supported import extensions
+    supported_extensions = []
+    for ext_list in SUPPORTED_IMAGE_FORMATS_IMPORT.values():
+        supported_extensions.extend(ext_list)
+
     file_list = []
     for root, _, files in os.walk(input_directory):
         for file in files:
-            if file.lower().endswith(SUPPORTED_IMAGE_FORMATS_IMPORT):
+            if any(file.lower().endswith(ext) for ext in supported_extensions):
                 file_list.append(os.path.join(root, file))
 
     total_files = len(file_list)
