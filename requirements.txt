@@ -1,7 +1,7 @@
 # This requirements file specifies the dependencies for the QuickCompress project.
 # Minimum Python version required: 3.8
 
-pillow==10.4.0
+pillow==12.1.1
 pillow-avif-plugin==1.4.6
 pytest==8.3.3
 pytest-qt==4.4.0
