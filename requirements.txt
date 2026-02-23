@@ -4,5 +4,5 @@
 pillow==12.1.1
 pillow-avif-plugin==1.4.6
 pytest==9.0.2
-pytest-qt==4.4.0
+pytest-qt==4.5.0
 PyQt6==6.10.2
